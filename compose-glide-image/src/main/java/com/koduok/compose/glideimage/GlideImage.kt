@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import androidx.compose.Composable
 import androidx.compose.FrameManager
-import androidx.compose.onPreCommit
+import androidx.compose.onCommit
 import androidx.compose.state
 import androidx.ui.core.ContextAmbient
 import androidx.ui.core.Modifier
@@ -36,7 +36,7 @@ fun GlideImage(
         val drawable = state<Drawable?> { null }
         val context = ContextAmbient.current
 
-        onPreCommit(model) {
+        onCommit(model) {
             val glide = Glide.with(context)
             var target: CustomTarget<Bitmap>? = null
             val job = CoroutineScope(Dispatchers.Main).launch {
