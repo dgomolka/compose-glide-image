@@ -47,10 +47,8 @@ fun GlideImage(
                     }
 
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                        FrameManager.framed {
-                            image.value = resource.asImageAsset()
-                            onImageReady?.invoke()
-                        }
+                        image.value = resource.asImageAsset()
+                        onImageReady?.invoke()
                     }
                 }
 
